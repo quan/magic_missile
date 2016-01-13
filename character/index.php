@@ -1,194 +1,124 @@
 <?php
+
 	session_start();
+	session_unset();
 
-	if(isset($_POST['getstarted'])){
-		$_SESSION['char_level'] = 1;
-		header('location: character/race.php');
-		}
+	include('../db.php');
+
+	if (isset($_POST['save'])) {
+		$_SESSION['char_level'] = $_POST['char_level'];
+		header('location: race.php');
+	}
+	
 ?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
-
-	<title>Home | Magic Missile</title>
+	<title>New Character | Magic Missile</title>
 	<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<!--JS-->
-	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+
 	<!--CSS-->
-	<link rel="stylesheet" type="text/css" href="css/index.cssx" />
-	<link rel="stylesheet" type="text/css" href="character/character.css" />
-
+	<link rel="stylesheet" type="text/css" href="character.css" />
 	<style>
-		body{
-			background-image: url('img/mapbg.jpg');
-			background-position: center top;
-			background-repeat: no-repeat;
-			background-color: #000;
-		}
-
-		#content{
-			font-family: 'Lato', sans-serif;
-			background-image: url('img/parchment2.png');
-			background-size: 900px 600px;
-			width: 900px;
-			height: 600px;
-			margin: auto;
-			position: relative;
-			display: flex;
+		.content{
 			flex-direction: column;
+			justify-content: top;
+			align-items: center;
 		}
-		@keyframes swayz{
-			0%{transform: rotate(0deg);}
-			25%{transform: rotate(-1deg)};
-			50%{transform: rotate(0deg);}
-			75%{transform: rotate(1deg);}
-			100%{transform: rotate(0deg);}
-		}
-
-
-		.getstarted{
-			background-image: url('img/get_started.png');
-			width: 180px;
-			height: 50px;
-			border: none;
-			position: relative;
-			margin: 10px 0 0 0;
+		.sidebutton{
+			background-image: url("../img/side_button.png");
+			background-size: 200px 50px;
+			background-repeat: no-repeat;
+			width: 200px;
+			height:50px;
+			border: 0px groove #666;
+			font-size: 1.75em;
+			font-family: 'Kaushan Script', cursive;
+			margin: 10px 0 10px -23px;
 			cursor: pointer;
-		}
-		.message{
-			width: 600px;
-			margin: 0 auto 0 auto;
-			font-family: 'Playfair Display', serif;
-		}
-		.login_wrapper{
-			background-image: url("img/parchment.png");
-			background-size: 500px 400px;
-			width: 500px;
-			height: 400px;
-			margin: auto;
 			position: relative;
 		}
-
+		.names{
+			font-size: 0.9em;
+			text-align: center;
+			width: 158px;
+			height: 38px;
+			position: absolute;
+			right: 5px;
+			top: 7px;
+		}
+		.activity{
+			display: none;
+		}
+		.left{
+			width:177px;
+			padding: 80px 0 0 0;
+		}
+		.right{
+			width:723px;
+			height:100%;
+			padding:0;
+		}
 	</style>
+
 </head>
+
 <body class="noselect">
-
-		<!--Logo Area-->
-		<?php $level=0; include('logo.php'); ?>
-
-		
-	<div class="board">
-
-		<!--Nav Bar-->
-		<div class="top">
-			<?php $level=0; include('nav.php'); ?>
-		</div>
-		
-		
-		<!--Sign Content-->
-		<div class="middle">
-
-			<div class="fade2">
-				
-				<div class="title glow2">
-					Welcome to The Magic Missile!
-				</div>
-
-				<!--UNDER CONSTRUCTION-->
-				<img src='img/construction.png' width="400px" height="80px" class="shadow"/>
-				<!--VERSION #-->
-				<div style="font-size: 3em; color: #f00;">v0.2.2</div>
-				<div class="message">
-					Magic Missile is a Guided Character Creator for D &amp; D 3.5
-					<br></br>
-					Click below to get started building your very own character and in the end you will even get a completed character sheet! Hell yeah! :D
-					<br></br>
-					Also you can check our our library of character attributes to learn up on all the things that stuff can do. :)
-					<br></br>
-					If you are already a member, login to your profile to view past character sheets and other fun stuffs!
-				</div>	
-				<form method="POST">
-					<input type="submit" name="getstarted" class="getstarted" value=""/>			
-				</form>
-			</div>
-
-					<!--
-					<div style="position: absolute; bottom: 0px; margin: auto; width: 100%; height: 10px;">
-						<?php // include('footer.php'); ?>
-					</div>
-					-->
-		</div>
-
-		<div class="bottom">
-			<div style="padding: 20px 0 0 0; font-size: 16pt;">
-				<?php $level=0; include('footer.php'); ?>
-			</div>
-		</div>
-		
+	<?php $level=1; include('logo.php');?>
+	
+<div class="board">
+	<div class="top">
+		<?php $level=1; include('nav.php'); ?>
 	</div>
-	
-		
-		<div class="post"></div>
-		<div class="grass"></div>
-		
-		
-		<!--            VERSION GOODIE        -->
+	<div class="middle">
+		<div class="content">
 
-		<!--Audio-->
-		<audio id="sound" src="snd/moon.mp3" loop></audio>
-		<!--Animation GIF with Mute Button-->
+			<div class="title">
+				Choose your Character's Level
+			</div>
 
-			<img src="img/unmute.png" id="muteButton" onClick="muteTheThing()" title="Mute/Unmute" />
+			<div class="subtitle">
+				If you are making a new character choose Level 1. If you know what you are doing choose a different Level.
+			</div>
+			<br></br>
 
-		
-		<style>
-		#muteButton{
-			width: 50px;
-			height: 50px;
-			position: absolute;
-			top: 12px;
-			right: 12px;
-			z-index: 999;
-		}
-
-		#anim{
-			position: absolute;
-			right: 50px;
-			bottom: 50px;
-			background-image: url('img/2016.gif');
-			background-size: 100% 100%;
-			height: 200px;
-			width: 300px;
-		}
-		
-		</style>
-		
-		<script content-type="text/Javascript">
-			var audio = document.getElementById("sound");
-			audio.play();
-
-			function muteTheThing(){
-				var audio = document.getElementById("sound");
-				var pic = document.getElementById("muteButton");
-
+				<select id="level" style="width: 100px;">
+					<option></option>
+					<option>1</option>
+				</select>
 				
-				if (audio.paused) {
-					audio.play();
-					pic.setAttribute("src", "img/unmute.png");
 
-				} else {
-					audio.pause();
-					pic.setAttribute("src", "img/mute.png");
 
-				}				
-				
-			}
-		</script>
-
-		
-
+		</div>
+	</div>
+	<div class="bottom">
+		<?php include('progress.php'); ?>
+	</div>
+</div>
+	<div style="padding: 10px 0 0 0">
+		<?php $level=1; include('footer.php'); ?>
+	</div>
+	<?php mysql_close($con); ?>
 </body>
+
+<script>
+	$('.progressitem').hide();
 	
+	$('#NEXT').css('position', 'absolute');
+	$('#NEXT').css('left', '756px');
+
+	$('#level').change(function(){
+		$('#NEXT').show();
+		$('#char_level').val($(this).val());
+	});
+</script>
+
+
 </html>
+
+
