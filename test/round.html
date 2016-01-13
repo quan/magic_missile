@@ -1,0 +1,51 @@
+<html>
+
+<head>
+	<style>
+		body{
+			background-image: url('../img/mapbg.jpg');
+		}
+		.round{
+			height: 130px;
+			width: 130px;
+			background-color: #000;
+			border-radius: 141px;
+			margin: 50px;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		.wrap{
+			height: 120px;
+			width: 55px;
+			overflow: hidden;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+		}
+
+		.shadow{
+			box-shadow: 0px 0px 5px 10px #000;
+		}
+
+		.vid{
+			position: absolute;
+			bottom: 0;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="round shadow">
+		<div class="wrap">
+			<video src="../img/fire_logo.mp4" type="video/mp4" width="200px" height="200px" style="margin: 0 8px 55px 0;" loop autoplay></video>
+		</div>
+	</div>
+
+</body>
+
+</html>

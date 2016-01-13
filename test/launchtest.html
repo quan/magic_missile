@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>untitled</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.23.1" />
+	<style>
+		*{
+			margin: 0;
+		}
+		
+		html, body{
+			height: 100vh;
+			width: 100vw;
+			overflow: hidden;
+		}
+		
+	@keyframes missile {
+	0% {transform: scale(0.3) translate(0px, 70px) ;}
+	7%{transform: scale(1) rotate(5deg) translate(500px, 70px)  ;}
+	15% {transform: scale(1) rotate(-8deg) translate(1200px, 70px) ;}
+	100% {transform: scale(1) translate(1200px, 0px);}
+	
+	}
+	
+	.launch{
+		width: 125px;
+		height: 30px;
+		margin: auto;
+		animation-name: missile;
+		animation-duration: 10s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		animation-delay: 0s;
+	}
+	
+	@keyframes rot {
+	from {transform: rotate(0deg) translate(-15px) rotate(0deg);}
+	to {transform: rotate(360deg) translate(-15px) rotate(-360deg);}
+	}
+
+	.hover {
+		width: 75px;
+		height: 100px;
+		margin: -15px auto;
+		animation: rot 5s infinite linear;
+		transform-style: preserve-3d;
+	}
+	
+	.logo{
+		width: 920px;
+		height: 120px;
+		margin: auto;
+}	
+	</style>
+</head>
+
+<body>
+	<div class="logo">
+		<div class="launch"><img src="img/missile.png" width="125px" height="30px"/></div>
+		<div class="hover"><img src="img/logo.png" height="100px" width="75px" /></div>
+	</div>
+</body>
+
+</html>

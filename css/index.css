@@ -1,0 +1,162 @@
+@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
+@import url(https://fonts.googleapis.com/css?family=Courgette);
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+/*******************GRASS and POST****************************/
+@media screen and (min-height: 750px) {
+.post{
+	background-image: url("../img/post.png");
+	width: 80px;
+	min-height: 20px;
+	height: calc(100vh - 767px);
+	margin: auto;
+	position: relative;
+	z-index: -1;
+}
+.grass{
+	background-image: url("../img/grass.png");
+	background-size: auto 80px;
+	position: relative;
+	margin: -79px auto;
+	width: 100%;
+	height: 80px;
+	z-index: 2;
+	}
+}
+
+/***************************LEAF*******************************/
+.leaf{
+	background-image: url('img/leaf.png');
+	background-size: 200px 100px;
+	width: 200px;
+	height: 100px;
+	position: absolute;
+	right: 0;
+	top: -155px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+input[type=submit].logout{
+	background-image: url('img/logout.png');
+	background-size: 25px 25px;
+	background-color: transparent;
+	height: 25px;
+	width: 25px;
+	border: none;
+	cursor: pointer;
+}
+input[type=submit].settings{
+	background-image: url('img/settings.png');
+	background-size: 25px 25px;
+	background-color: transparent;
+	height: 25px;
+	width: 25px;
+	border: none;
+	cursor: pointer;
+
+}
+/***************************MAIN CSS***************************/
+*{
+	margin: 0;
+}
+html{
+	height: 100%;
+}
+body{
+	height: 100%;
+	background-color: #000;
+	/*
+	background-image: url("../img/paper.png");
+	background-attachment: fixed;
+	
+	*/
+	text-align: center;
+	font-family: 'Kaushan Script', cursive;
+	}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#footer{
+	font-family: 'Lato', sans-serif;
+	font-size:1em;
+	font-weight: bold;
+	color: #fff;
+	width: 100%;
+	position: absolute;
+	bottom: 20px;
+}
+
+.wrapper{
+	min-height: 100%;
+	height: auto;
+	margin: 0 auto -30px;
+	}
+
+
+.title{
+	font-family: 'Kaushan Script', cursive;
+	color: #663300;
+	text-align: center;
+	font-size: 4em;
+	padding: 40px 0 40px 0;
+}
+.subtitle{
+	font-family: 'Kaushan Script', cursive;
+	font-size: 2em;
+	text-align: center;
+	margin: -50px 0 50px 0;
+	}
+
+p.welcome{
+	color: #663300;
+	width: 60%;
+	margin: auto;
+	text-align: left;
+}
+
+button.default{
+	background-image: url('../img/button.png');
+	background-size: 150px 50px;
+	width: 150px;
+	height: 50px;
+	border: none;
+	font-family: 'Kaushan Script', cursive;
+	font-size: 2em;
+}
+
+
+/*****************************SHADOW & GLOW *******************************/
+
+.shadow{
+	box-shadow: 0px 2px 10px 1px rgba(0,0,0,1);
+}
+
+.shadowLight{
+	box-shadow: 0px 0px 5px 5px #FFF;
+}
+
+.glow1{
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
+.glow2{
+	text-shadow:
+		-1px -1px 0 #fff,
+		1px -1px 0 #fff,
+		-1px 1px 0 #fff,
+		1px 1px 0 #fff;
+}
+

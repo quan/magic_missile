@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>Div Test - Shadow Box</title>
+	
+	<style>
+		*{
+			margin: 0;
+		}
+
+		.center{
+			text-align: center;
+		}
+		.first{
+			height: 300px;
+		}
+		
+		.shadow{
+			width: 100vw;
+			height: 100px;
+			box-shadow: 0px 2px 30px 1px rgba(0,0,0,1);
+		}
+		.footer{
+			height: 200px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="first center">
+		<br></br>
+		Hello world
+	</div>
+	<div class="shadow center">
+		<br></br>
+		This box looks raised because of the shadow.
+	</div>
+	<div class="first center">
+		<br></br>
+		This looks like it is underneath the above box.
+	</div>
+	<div class="shadow center">
+		<br></br>
+		This also looks raised.
+	</div>
+	<div class="footer center">
+		<br></br>
+		Footers
+	</div>
+</body>
+</html>

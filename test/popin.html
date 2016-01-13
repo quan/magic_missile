@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Simple JS Popin</title>
+	<style>
+	.parentDisable {
+		z-index:999;
+		width:100%;
+		height:100%;
+		display:none;
+		position:absolute;
+		top:0;
+		left:0;
+		/* Fallback for web browsers that doesn't support RGBa */
+		background: rgb(0, 0, 0);
+		/* RGBa with 0.6 opacity */
+		background: rgba(0, 0, 0, 0.6);
+		/* For IE 5.5 - 7*/
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+		/* For IE 8*/
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+	}
+	.popin {
+		width: 500px;
+		height:500px;
+		margin: auto;
+		color: #000;
+		background-color: #fff;
+	}
+	</style>
+	<script>
+		function pop(div) {
+			document.getElementById(div).style.display='block';
+			return false;
+		}
+		function hide(div) {
+			document.getElementById(div).style.display='none';
+			return false;
+		}
+	</script>
+</head>
+
+<body>
+	<div id="pop1" class="parentDisable">
+		<div class="popin">
+			<h2>This is popin 1</h2>
+			<a href="#" onClick="return hide('pop1')">Close</a>
+		</div>
+	</div>
+	
+	<div id="pop2" class="parentDisable">
+		<div class="popin">
+			<h2>This is popin 2</h2>
+			<a href="#" onClick="return hide('pop2')">Close</a>
+		</div>
+	</div>
+
+	<h3>Simple JS Popin Example</h3>
+	<a href="#" onClick="return pop('pop1')">popin 1</a>
+	<a href="#" onClick="return pop('pop2')">popin 2</a>
+</body>
+</html>

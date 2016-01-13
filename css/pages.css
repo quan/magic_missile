@@ -1,0 +1,25 @@
+.board{
+	width: 950px;
+	margin: auto;
+}
+.top{
+	background-image: url("../img/top.png");
+	background-size: 950px 66px;
+	height: 66px;
+	width: 950px;
+}
+.middle{
+	background-image: url("../img/middle.png");
+	background-size: 950px 596px;
+	height: 596px;
+	width: 950px;
+}
+.bottom{
+	background-image: url("../img/bottom.png");
+	background-size: 950px 68px;
+	height: 68px;
+	width: 950px;
+}
+.content{
+	
+}

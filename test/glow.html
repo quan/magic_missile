@@ -1,0 +1,63 @@
+<html>
+<head>
+	<style>
+		body{
+			background: pink;
+		}
+		#dwarf, #elf, #gnome{
+			background: red;
+			width: 100px;
+			height: 100px;
+			margin: 10px;
+		}
+		.shadowLight{
+			box-shadow: 0px 0px 5px 5px #FFF;
+		}
+		.activity{
+			height: 140px;
+			width: 140px;
+			background: blue;
+			margin: 10px;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+</head>
+
+<body>
+	<div class="sidebutton" id="dwarf">Dwarf</div>
+	<div class="sidebutton" id="elf">Elf</div>
+	<div class="sidebutton" id="gnome">Gnome</div>
+
+	<div class="activity" id="default_content">
+	<div class="title">
+		Please Select a Race
+	</div>
+	<p class="welcome">
+		These are words about what a race is.
+	</p>
+</div>
+
+	<script type="text/javascript">
+		$("#default_content").show();
+
+		$(".sidebutton").click(function(){
+			//Glowing
+			$(".sidebutton").removeClass("shadowLight");
+			$(this).toggleClass("shadowLight");
+			$("#display").html($(this).attr('id'));
+			//Display relavant div
+			var chosen = "#".concat($(this).attr('id')).concat('_content');
+			$(".activity").hide();
+			$(chosen).toggle();
+		});
+
+	</script>
+
+	<div class="activity" id="dwarf_content">This is info about the dwarf</div>
+	<div class="activity" id="elf_content">This is info about the elf</div>
+	<div class="activity" id="gnome_content">This is info about the gnome</div>
+
+</body>
+
+</html>

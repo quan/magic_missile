@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<title>Home | Magic Missile</title>
+	<style>
+		@media screen and (min-height: 800px) {
+			.post{
+				background-image: url("../img/post.png");
+				width: 80px;
+				min-height: 20px;
+				height: calc(100vh - 667px);
+				margin: auto;
+				position: relative;
+				z-index: -3;
+			}
+			.grass{
+				background-image: url("../img/grass.png");
+				background-size: auto 80px;
+				position: relative;
+				margin: -79px auto;
+				width: 100%;
+				height: 80px;
+				z-index: 2;
+			}
+		}
+		#footer{
+			font-family: 'Lato', sans-serif;
+			font-size:1em;
+			font-weight: bold;
+			color: #fff;
+			width: 100%;
+			position: absolute;
+			bottom: 20px;
+		}
+		#header{
+			background-image: url('img/slat.png');
+			background-size: 950px 66px;
+			height: 66px;
+			width: 950px;
+			margin: auto;
+			border-left: 2px solid #000;
+			border-right: 2px solid #000;
+			position: relative;
+			z-index: 1;
+		}
+		#content{
+			font-family: 'Lato', sans-serif;
+			background-image: url('img/parchment2.png');
+			background-size: 900px 600px;
+			width: 900px;
+			height: 600px;
+			margin: auto;
+			position: relative;
+			z-index: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.error{
+			font-family: 'Kaushan Script', cursive;
+			font-size: 7em;
+		}
+	</style>
+</head>
+<body>
+
+		<!--Logo Area-->
+		
+		<!--Nav Bar-->
+
+		<div id="header" class="shadow">
+			
+		</div>
+		
+		<!--Sign Content-->
+		<div id="content" class="shadow">
+
+			<span class="error">Error</span>
+			<span class="error">404</span>
+
+			<div id="footer" class="glow1">
+				&copy; 2015 Magic Missile Team
+			</div>
+
+		</div>
+
+		<!--Sign Post-->
+		<div class="post shadow"></div>
+		<div class="grass"></div>
+		
+
+</body>
+	
+</html>

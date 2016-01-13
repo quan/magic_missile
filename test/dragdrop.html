@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript" src="../js/jquery.js"></script>
+	<style>
+		.target{
+			height: 100px;
+			width: 100px;
+			padding: 10px;
+			margin: 10px;
+			border: 5px solid #000;
+			background: #0FF;
+		}
+		.element{
+			height: 100px;
+			width: 100px;
+			background: red;
+			font-size: 3em;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		#holster{
+			background-color: #0F0;
+			height: 100px;
+			padding: 25px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+		}
+	</style>
+</head>
+
+<body>	
+
+<div style="display: flex; flex-direction: row;">
+	1<div id="att1" class="target"></div>
+	2<div id="att2" class="target"></div>
+	3<div id="att3" class="target"></div>
+	4<div id="att4" class="target"></div>
+	5<div id="att5" class="target"></div>
+	6<div id="att6" class="target"></div>
+</div>
+
+<div id="holster" style="display: flex; flex-direction: row;">
+	<div id="roll1" class="element" draggable="true">A</div>
+	<div id="roll2" class="element" draggable="true">B</div>
+	<div id="roll3" class="element" draggable="true">C</div>
+	<div id="roll4" class="element" draggable="true">D</div>
+	<div id="roll5" class="element" draggable="true">E</div>
+	<div id="roll6" class="element" draggable="true">F</div>
+</div>
+
+</body>
+
+	<script>
+
+
+	function handleDragStart(e) {
+		this.style.opacity = '0.5';
+
+		e.dataTransfer.setData('text/html', this.id);
+	}
+
+	function handleDragOver(e) {
+		if (e.preventDefault) {
+			e.preventDefault();
+		}
+
+		return false;
+	}
+
+	function handleDragEnter(e){
+		e.preventDefault();
+	}	
+
+	function handleDragLeave(e){
+		e.preventDefault();
+	}
+
+	function handleDrop(e){
+		if (e.stopPropogation) {
+			e.stopPropogation();
+		};
+
+		$('#holster').prepend(this.innerHTML);
+		$(this).empty();
+
+		var dataz = e.dataTransfer.getData('text/html');
+
+		$(this).append(document.getElementById(dataz));
+
+
+		return false;
+	}
+
+	function handleDragEnd(e){
+		this.style.opacity = '1';
+	}
+
+	//=============================================================
+	var peas = $('.element');
+
+	[].forEach.call(peas, function(pea){
+		pea.addEventListener('dragstart', handleDragStart, false);
+		pea.addEventListener('dragover', handleDragOver, false);
+		pea.addEventListener('dragend', handleDragEnd, false);
+	});
+
+	var slots = $('.target');
+
+	[].forEach.call(slots, function(slot){
+		slot.addEventListener('dragover', handleDragOver, false);
+		slot.addEventListener('dragenter', handleDragEnter, false);
+		slot.addEventListener('dragleave', handleDragLeave, false);
+		slot.addEventListener('drop', handleDrop, false);
+	});
+	</script>
+
+</html>

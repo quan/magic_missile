@@ -1,0 +1,192 @@
+=============================================================================
+Version 2.2
+=============================================================================
+///////////
+//UPDATES//
+///////////
+*character/index.php
+	--added Fav Icon
+
+*character/feats.php
+	--updated drag and drop functionality
+	--added lock mechanism
+	--added full text display from DB
+	--still needs Next Button show condition
+
+*character/feats/default.php
+	--updated to conform to new art design
+
+*index.php
+	--added Fav Icon
+	--thematic v0.2.2 changes (new song)
+
+*results.php
+	--reordered the attributes to match D&D character sheet
+
+*nav.php
+	--updated to confrom to new art design
+
+*character/rolls.php
+	--JS added functionality which hides Next Button on load
+
+*character/rolls/dragdrop.php
+	--FINALLY fucking figured out a way to make this work. It now works. :)
+
+*character/rolls/pointbuy.php
+	--reordered the attributes to match D&D character sheet (S, D, C, I, W, Ch)
+
+*character/rolls/manual.php
+	--reordered the attributes to match D&D character sheet (S, D, C, I, W, Ch)
+
+*library/index.php
+	--added Fav Icon
+
+/////////////
+//ADDITIONS//
+/////////////
+
++img/mapbg.jpg
+	--new background
+
++img/favicon.png
+	--placeholder favicon
+
++character/img/favicon.png
+	--placeholder favicon
+
++character/feats/full.php
+	--a page containing divs of the full_text fo each feat
+
++library/img/favicon.png
+	--placeholder favicon
+
+////////////
+//REMOVALS//
+////////////
+
+
+
+=============================================================================
+Version 2.1
+=============================================================================
+///////////
+//UPDATES//
+///////////
+
+*index.php
+	-various thematic changes (Diablo music)
+	-added Under Construction Image
+	-added red version number
+	-changed Get Started button to auto-set Character Level to 1 then redirect to character/race.php
+
+*home.php
+	--Removed the leaf with Settings and Logout Buttons, replaced with side-button
+	--Moved footer into 'Bottom' section div (alignment issues remain)
+
+*footer.php
+	--Included links to legal.php, contact.php and results.php (PDF)
+
+*nav.php
+	-changed 'Character Creator' to link to character/
+	-changed 'Browse Library' to link to library/
+
+
+*character/progress.php
+	-disabled links to different pages
+	-ADMIN MODE: to navigate press SHIFT + click to go to different tabs
+
++character/index.php
+	-created this index page
+	-added functionality to choose Chatacter Level
+
+*character/race.php
+	-JS added show/hide of Next Button
+
+*character/class.php
+	-placed half the buttons on left and right side of screen
+	-made buttons slightly smaller
+	-did this with two SQL queries and a LIMIT parameter
+	-JS added show/hide of Next Button
+
+*character/rolls.php
+	-updated page to match art
+	-JS added show/hide of Next Button
+
+*character/rolls/fourDsix.php
+	-modified to fit inside updated rolls.php page
+
+*character/rolls/pointbuy.php
+	-added modifier calculations
+	-added padding, rows, and columns
+	-added mode selector (Easy: 32pts, Hard: 27pts)
+	-Updated weighted cost of increasing stats according to chart-pic (posted in Fleep)
+
+*character/skills/default.php
+	-Updated Skill Points calculation function to account for character level
+	-JS added show/hide of Next Button when last skill point is allocated
+	(Consider removing Save Skills button)
+
+*character/spells/default.php
+	-linked spell tables from DB based on particular class.
+	-JS added show/hide of Next Button
+
+*library/ALL
+	--included new logo, new nav bar and new footer on all pages
+
+
+////////////
+//REMOVALS//
+////////////
+
+--char_creator_old.php
+--char_creator.php
+--char_template.php
+--home_old.php
+--index_old.php
+--library.php
+--login_old.php
+
+
+
+/////////////
+//ADDITIONS//
+/////////////
+
++legal.php
+	-This will be the page with legal info, copywrite and WotC disclaimers and stuff.
+
++contact.php
+	-This will be the page with our company contact info.
+
++fpdf/
+	-includes PDF plugins and output functionality
+	
++results.php
+	-creates a PDF of character attributes taken from the stored SESSION variables
+	(does not work correctly for skills)
+
++test/
+	+divtest.html
+	+dragdrop.html
+	+dragdrop2.html
+	+glow.html
+	+launchtest.html
+	+table_test.html
+	+spin.html
+	+popin.html
+	+popin.php
+	+skillbox.php
+	+table_test.php
+	+tooltip.html
+	+pushtest.php
+
+//Created Custom 404 page
++error/
+	+404.html
+
+
+=============================================================================
+Version 2.0
+=============================================================================
+
+First Version to go live on TheMagicMissile.XYZ

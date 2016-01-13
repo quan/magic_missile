@@ -1,0 +1,4 @@
+<p style="color: #F00;">
+This is some text I put here derp.
+</p>
+<?php echo 'Sup foo'; ?>
