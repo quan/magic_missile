@@ -8,6 +8,44 @@
 	
 	include('../db.php');
 
+	$col_name = strtolower($_SESSION['char_class']);
+	//MYSQL
+	//Query for Class Skills and Domain Skills; Alphabetically
+	$query_skill = "(SELECT `skill_name` FROM `class_skill` WHERE `$col_name` = 1) UNION (SELECT `skill_name` FROM `domain_skill` WHERE `domain_name` = '$_SESSION[char_domain]') ORDER BY `skill_name` ASC";
+	//Query for Cross Class Skills
+	$query_cross = "SELECT `skill_name` FROM `class_skill` WHERE `$col_name` = 0 ORDER BY `skill_name` ASC";
+	//Results of Queries in a MYSQL array format
+	$skill_results = mysql_query($query_skill);
+	$cross_results = mysql_query($query_cross);
+
+	//Create function to Calculate number of Skill Points
+	function skillpoints($class, $race, $int)
+	{	
+		//Partition of the classes
+		$group1 = array("Cleric", "Fighter", "Paladin", "Sorcerer", "Wizard");
+		$group2 = array("Barbarian", "Druid", "Monk");
+		$group3 = array("Bard", "Ranger");
+		$group4 = array("Rogue");
+		//Calculates modifier
+		$mod = floor(($int-10)/2);
+		//Checks if Human
+		$hum = ($race == "Human" ? 1 : 0);
+		//Gets Character Level
+		$lvl = $_SESSION['char_level'];
+		//Assigns the parameter
+		if (in_array($class, $group1)) {
+			$plus = 2;
+		} elseif (in_array($class, $group2)){
+			$plus = 4;
+		} elseif (in_array($class, $group3)){
+			$plus = 6;
+		} elseif (in_array($class, $group4)){
+			$plus = 8;
+		};
+		//Returns the # of skill points awarded
+		return ($plus + $hum + $mod) * (4 + $lvl -1);
+	}
+
 
 ?>
 <!DOCTYPE html>
@@ -29,6 +67,7 @@
 			height: 175px;
 			width: 100%;
 			position: relative;
+
 		}
 		.below{
 			height: 160px;
@@ -74,26 +113,37 @@
 			justify-content: space-around;	
 			align-items: center;
 		}
-
-
-		.pod{
-			border: 5px solid #000;
-			background-color: transparent;
+		.space{
 			width: 720px;
-			height: 275px;
 			margin: auto;
 			display: flex;
 			flex-direction: row;
+		}
+		.podL{
+			background-color: transparent;
+			width: 360px;
+			height: 275px;
+			display: flex;
+			flex-direction: row;
 			flex-wrap: wrap;
-			justify-content: center;
+			justify-content: left;
+			align-items: center;
+			overflow-y: auto;
+		}
+
+		.podR{
+			background-color: transparent;
+			width: 360px;
+			height: 275px;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: left;
 			align-items: center;
 			overflow-y: auto;
 		}
 		.pea{
-			background-color: #fff;
-			border: 3px solid #000;
 			font-size: 1em;
-			width: 140px;
 			height: 50px;
 			margin: 10px;
 			text-align: center;
@@ -112,6 +162,30 @@
 			flex-diretion: row;
 			align-items: center;
 			justify-content: center;
+		}
+		.skill_name{
+			font-size: 1.25em;
+			margin: 5px;
+		}
+		.points{
+			width: 30px;
+			height: 30px;
+			border-bottom: 2px solid #000;
+		}
+		.plus{
+			background-image: url('img/plus.png');
+			background-size: 25px 25px;
+			background-color: transparent;
+			height: 25px;
+			width: 25px;
+		}	
+		.minus{
+			background-image: url('img/minus.png');
+			background-size: 25px 25px;
+			background-color: transparent;
+			height: 25px;
+			width: 25px;
+			margin: 5px;
 		}
 
 	</style>
@@ -133,17 +207,48 @@
 					Skills
 				</div>
 	
+				<div class="space">
+					<div class="podL">
 
-				<div class="pod">
+						<!--This is where the skill go-->
 
-				</div>	
+						<?php
+							while ($row = mysql_fetch_assoc($skill_results)) {
+								echo '<div class="pea">
+										<div class="skill_name">' . $row['skill_name'] . '</div>
+										<div class="minus"></div>
+										<div class="points">0</div>
+										<div class="plus"></div>
+									</div>';
+							}
+						?>
+
+					</div>
+
+					<div class="podR">
+
+
+						<?php
+							while ($row = mysql_fetch_assoc($cross_results)) {
+								echo '<div class="pea">
+										<div class="skill_name">' . $row['skill_name'] . '</div>
+										<div class="minus"></div>
+										<div class="points">0</div>
+										<div class="plus"></div>
+									</div>';
+							}
+						?>
+
+					
+					</div>
+				</div>
 
 				<div id="chains">
 					
 				</div>		
 
 				<div id="submenu" class="shadow">
-					<div class="remain">99</div>
+					<div class="remain"><?php echo skillpoints($_SESSION['char_class'], $_SESSION['char_race'], $_SESSION['char_int']); ?></div>
 				</div>
 			</div>
 
@@ -165,125 +270,23 @@
 </body>
 
 <script>
-	//Hides Next Button
-	$('#next_button').hide();
-
-	//Displays full_text for feat when a feat is clicked
-	$('.pea').click(function(){
-
-		var full_id = 'feats/full.php ' + '#' + $(this).attr('id') + '_text';
-		$('.below').load(full_id);
-	});
-
-	//Locks in feat (incomplete)
-	$('div[id^=lock]').click(function(){
-
-		var slot = $(this).parent().find('div[id^=feat]');
-		
-		if (slot.html() != "" && $(this).hasClass('unlock')) {
-			$(this).removeClass('unlock');
-			$(this).addClass('lock');
-			slot.find('.pea').css('color', 'red');
-			slot.find('.pea').attr('draggable', false);
+	$('.minus').click(function(){
+		if ($(this).parent().find('.points').html() > 0) {
+			$(this).parent().find('.points').html(parseInt($(this).parent().find('.points').html())-1);
+			$('.remain').html(parseInt($('.remain').html())+1);
 		} else {
-			$(this).removeClass('lock');
-			$(this).addClass('unlock');
-			slot.find('.pea').css('color', 'black');
-			slot.find('.pea').attr('draggable', true);
+			return false;
 		}
+	});	
 
-		//This part isn't working!
-		//Checks that all feats have been locked in
-		if ($('#lock_1').hasClass('lock') && $('#lock_2').hasClass('lock') && $('#lock_3').hasClass('lock')) {
-			alert('done');
-		}
-		
-	});
-
-	//dragstart function
-	function handleDragStart(e) {
-		this.style.opacity = '0.5';
-
-		
-		e.dataTransfer.setData('text/html', this.id);
-	}
-
-	function handleDragOver(e) {
-		if (e.preventDefault) {
-			e.preventDefault();
-		}
-
-		return false;
-	}
-
-	function handleDragEnter(e){
-		this.style.color = 'white';
-	}	
-
-	function handleDragLeave(e){
-		this.style.color = 'black';
-	}
-
-	function handleDrop(e){
-		if (e.stopPropogation) {
-			e.stopPropogation();
+	$('.plus').click(function(){
+		if ($('.remain').html() > 0) {
+			$(this).parent().find('.points').html(parseInt($(this).parent().find('.points').html())+1);
+			$('.remain').html(parseInt($('.remain').html())-1);
+		} else {
+			return false;
 		};
 
-		var feat_id = e.dataTransfer.getData('text/html');
-		var feat = $('#' + feat_id);
-
-		if ($(this).html() == "") {
-		$(this).append(feat);
-
-		} else {
-		
-		$(this).find('div:first').appendTo('.pod');
-		$(this).find('div').detach();
-					
-			$(this).html(feat);
-		
-		}
-
-		return false;
-	}
-
-	function handleDropPod(e){
-		if (e.stopPropogation) {
-			e.stopPropogation();
-		};
-
-		var feat_id = e.dataTransfer.getData('text/html');
-		var feat = $('#' + feat_id);
-		$(this).prepend(feat);
-
-	};
-
-	function handleDragEnd(e){
-		this.style.opacity = '1';
-		this.style.color = 'black';
-	}
-
-	var peas = $('.pea');
-
-	[].forEach.call(peas, function(pea){
-		pea.addEventListener('dragstart', handleDragStart, false);
-		pea.addEventListener('dragover', handleDragOver, false);
-		pea.addEventListener('dragend', handleDragEnd, false);
-	});
-
-	var slots = $('.feat_slot');
-
-	[].forEach.call(slots, function(slot){
-		slot.addEventListener('dragover', handleDragOver, false);
-		slot.addEventListener('dragenter', handleDragEnter, false);
-		slot.addEventListener('dragleave', handleDragLeave, false);
-		slot.addEventListener('drop', handleDrop, false);
-	});
-
-	var pods = $('.pod');
-
-	[].forEach.call(pods, function(pod){
-		pod.addEventListener('drop', handleDropPod, false);
 	});
 
 </script>
