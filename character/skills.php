@@ -110,11 +110,12 @@
 			position: relative;
 			display: flex;
 			flex-direction: row;
-			justify-content: space-around;	
+			justify-content: center;	
 			align-items: center;
 		}
 		.space{
 			width: 720px;
+			height: 285px;
 			margin: auto;
 			display: flex;
 			flex-direction: row;
@@ -122,7 +123,7 @@
 		.podL{
 			background-color: transparent;
 			width: 360px;
-			height: 275px;
+			height: 285px;
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
@@ -134,7 +135,7 @@
 		.podR{
 			background-color: transparent;
 			width: 360px;
-			height: 275px;
+			height: 285px;
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
@@ -142,20 +143,22 @@
 			align-items: center;
 			overflow-y: auto;
 		}
-		.pea{
+		.pea, .peax{
 			font-size: 1em;
 			width: 100%;
 			height: 50px;
-			text-align: center;
 			position: relative;
 			display: flex;
 			flex-direction: row;
+			justify-content: space-between;
 		}
 		.remain{
 			background-image: url('img/totalpoint.png');
 			background-size: 150px 60px;
 			height: 60px;
 			width: 150px;
+			margin: 0 20px 0 20px;
+			font-size: 1.5em;
 			display: flex;
 			flex-diretion: row;
 			align-items: center;
@@ -164,6 +167,10 @@
 		.skill_name{
 			font-size: 1.25em;
 			margin: 5px;
+		}
+		.controls{
+			display: flex;
+			flex-direction: row;
 		}
 		.points{
 			width: 30px;
@@ -185,7 +192,16 @@
 			width: 25px;
 			margin: 5px;
 		}
-
+		.skill_lable{
+			background-image: url('img/insetbutton.png');
+			background-size: 250px 50px;
+			height: 50px;
+			width: 250px;
+			font-size: 2em;
+		}
+		.writeIn{
+			color: red;
+		}
 	</style>
 </head>
 
@@ -214,9 +230,11 @@
 							while ($row = mysql_fetch_assoc($skill_results)) {
 								echo '<div class="pea">
 										<div class="skill_name">' . $row['skill_name'] . '</div>
-										<div class="minus"></div>
-										<div class="points">0</div>
-										<div class="plus"></div>
+										<div class="controls">
+											<div class="minus"></div>
+											<div class="points">0</div>
+											<div class="plus"></div>
+										</div>
 									</div>';
 							}
 						?>
@@ -225,14 +243,15 @@
 
 					<div class="podR">
 
-
 						<?php
 							while ($row = mysql_fetch_assoc($cross_results)) {
-								echo '<div class="pea">
+								echo '<div class="peax">
 										<div class="skill_name">' . $row['skill_name'] . '</div>
-										<div class="minusx"></div>
-										<div class="points">0</div>
-										<div class="plusx"></div>
+										<div class="controls">
+											<div class="minusx"></div>
+											<div class="points">0</div>
+											<div class="plusx"></div>
+										</div>
 									</div>';
 							}
 						?>
@@ -246,9 +265,9 @@
 				</div>		
 
 				<div id="submenu" class="shadow">
-				
+					<div class="skill_lable">Class Skills</div>
 					<div class="remain"><?php echo skillpoints($_SESSION['char_class'], $_SESSION['char_race'], $_SESSION['char_int']); ?></div>
-					
+					<div class="skill_lable">Cross Class Skills</div>
 				</div>
 			</div>
 
@@ -259,56 +278,100 @@
 		</div>
 	</div>
 	<div class="bottom">
-		<?php include('progress.php') ?>
+		<?php include('progress.php'); ?>
 	</div>
 </div>
 
-	<div style="padding: 10px 0 0 0">
+	<div style="padding: 10px 0 0 0;">
 		<?php $level=1; include('footer.php'); ?>
 	</div>
 
 </body>
 
 <script>
+	//Hides the Next Button when page is loaded
+	$('#next_button').hide();
+
+	//Sets Class skill max function
+	function maxSkill(lvl){
+		return lvl + 3;
+	}	
+	//Sets Croxx Class skill max function
+	function maxSkillX(lvl){
+		return Math.floor((lvl + 3)/2);
+	}
+
 	//Minus button for Class Skills
 	$('.minus').click(function(){
-		if ($(this).parent().find('.points').html() > 0) {
-			$(this).parent().find('.points').html(parseInt($(this).parent().find('.points').html())-1);
+		//Subtract 1 from skill, add 1 to remaining
+		if ($(this).siblings('.points').html() > 0) {
+			$(this).siblings('.points').html(parseInt($(this).siblings('.points').html())-1);
 			$('.remain').html(parseInt($('.remain').html())+1);
 		} else {
 			return false;
-		}
+		};
+		//Trigger event to hide Next Button
+		if ($('.remain').html() == 1) {
+			$('#next_button').hide();
+		};
 	});	
 	//Plus button for Class Skills
 	$('.plus').click(function(){
-		if ($('.remain').html() > 0) {
-			$(this).parent().find('.points').html(parseInt($(this).parent().find('.points').html())+1);
+		if ($('.remain').html() > 0 && $(this).siblings('.points').html() < maxSkill(<?php echo $_SESSION['char_level']; ?>)) {
+			$(this).siblings('.points').html(parseInt($(this).siblings('.points').html())+1);
 			$('.remain').html(parseInt($('.remain').html())-1);
 		} else {
 			return false;
 		};
-
+		if ($('.remain').html() == 0) {
+			$('#next_button').show();
+		};
 	});	
 
 	//Minus button for Cross Class Skills
 	$('.minusx').click(function(){
-		if ($(this).parent().find('.points').html() > 0) {
-			$(this).parent().find('.points').html(parseInt($(this).parent().find('.points').html())-1);
+		if ($(this).siblings('.points').html() > 0) {
+			$(this).siblings('.points').html(parseInt($(this).siblings('.points').html())-1);
 			$('.remain').html(parseInt($('.remain').html())+2);
 		} else {
 			return false;
-		}
+		};
+		if ($('.remain').html() > 0) {
+			$('#next_button').hide();
+		};
 	});	
-	//Plus button for Class Skills
+	//Plus button for Cross Class Skills
 	$('.plusx').click(function(){
-		if ($('.remain').html() > 1) {
-			$(this).parent().find('.points').html(parseInt($(this).parent().find('.points').html())+1);
+		if ($('.remain').html() > 1 && $(this).siblings('.points').html() < maxSkillX(<?php echo $_SESSION['char_level']; ?>)) {
+			$(this).siblings('.points').html(parseInt($(this).siblings('.points').html())+1);
 			$('.remain').html(parseInt($('.remain').html())-2);
 		} else {
 			return false;
 		};
 
+		if ($(this).parent().siblings(".skill_name").html().indexOf("___") >= 0) {
+			var skillKind = $(this).parent().siblings(".skill_name").html().split(" ")[0];
+			var input = prompt(skillKind, "?");
+			$(this).parent().siblings(".skill_name").html(skillKind + " (" + input + ")");
+		};
+
+		if ($('.remain').html() == 0) {
+			$('#next_button').show();
+		};
 	});
+
+	//Finds all the Skills which have a fill in the blank
+	var writeIn = $(".pea:contains('___')").find('.skill_name');
+	//Turns these Skills red
+	writeIn.addClass('writeIn');
+	//Makes Skills clickable and prompts user to fill in the blank
+	writeIn.click(function(){
+		var skillKind = $(this).html().split(" ")[0];
+		var input = prompt(skillKind, "?");
+		$(this).html(skillKind + " (" + input + ")");
+		$(this).removeClass('writeIn');
+	});
+
 
 </script>
 
