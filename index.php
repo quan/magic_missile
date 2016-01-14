@@ -99,7 +99,7 @@
 				<!--UNDER CONSTRUCTION-->
 				<img src='img/construction.png' width="400px" height="80px" class="shadow"/>
 				<!--VERSION #-->
-				<div style="font-size: 3em; color: #f00;">v0.2.2</div>
+				<div style="font-size: 3em; color: #f00;">v0.2.3</div>
 				<div class="message">
 					Magic Missile is a Guided Character Creator for D &amp; D 3.5
 					<br></br>

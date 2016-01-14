@@ -144,14 +144,12 @@
 		}
 		.pea{
 			font-size: 1em;
+			width: 100%;
 			height: 50px;
-			margin: 10px;
 			text-align: center;
 			position: relative;
 			display: flex;
 			flex-direction: row;
-			justify-content: center;
-			align-items: center;
 		}
 		.remain{
 			background-image: url('img/totalpoint.png');
@@ -172,14 +170,14 @@
 			height: 30px;
 			border-bottom: 2px solid #000;
 		}
-		.plus{
+		.plus, .plusx{
 			background-image: url('img/plus.png');
 			background-size: 25px 25px;
 			background-color: transparent;
 			height: 25px;
 			width: 25px;
 		}	
-		.minus{
+		.minus, .minusx{
 			background-image: url('img/minus.png');
 			background-size: 25px 25px;
 			background-color: transparent;
@@ -232,9 +230,9 @@
 							while ($row = mysql_fetch_assoc($cross_results)) {
 								echo '<div class="pea">
 										<div class="skill_name">' . $row['skill_name'] . '</div>
-										<div class="minus"></div>
+										<div class="minusx"></div>
 										<div class="points">0</div>
-										<div class="plus"></div>
+										<div class="plusx"></div>
 									</div>';
 							}
 						?>
@@ -248,7 +246,9 @@
 				</div>		
 
 				<div id="submenu" class="shadow">
+				
 					<div class="remain"><?php echo skillpoints($_SESSION['char_class'], $_SESSION['char_race'], $_SESSION['char_int']); ?></div>
+					
 				</div>
 			</div>
 
@@ -270,6 +270,7 @@
 </body>
 
 <script>
+	//Minus button for Class Skills
 	$('.minus').click(function(){
 		if ($(this).parent().find('.points').html() > 0) {
 			$(this).parent().find('.points').html(parseInt($(this).parent().find('.points').html())-1);
@@ -278,11 +279,31 @@
 			return false;
 		}
 	});	
-
+	//Plus button for Class Skills
 	$('.plus').click(function(){
 		if ($('.remain').html() > 0) {
 			$(this).parent().find('.points').html(parseInt($(this).parent().find('.points').html())+1);
 			$('.remain').html(parseInt($('.remain').html())-1);
+		} else {
+			return false;
+		};
+
+	});	
+
+	//Minus button for Cross Class Skills
+	$('.minusx').click(function(){
+		if ($(this).parent().find('.points').html() > 0) {
+			$(this).parent().find('.points').html(parseInt($(this).parent().find('.points').html())-1);
+			$('.remain').html(parseInt($('.remain').html())+2);
+		} else {
+			return false;
+		}
+	});	
+	//Plus button for Class Skills
+	$('.plusx').click(function(){
+		if ($('.remain').html() > 1) {
+			$(this).parent().find('.points').html(parseInt($(this).parent().find('.points').html())+1);
+			$('.remain').html(parseInt($('.remain').html())-2);
 		} else {
 			return false;
 		};
