@@ -246,7 +246,7 @@
 	});
 
 
-	//-------------------------DRANG AND DROP----------------------------//
+	//-------------------------DRAG AND DROP----------------------------//
 
 	//dragstart function
 	function handleDragStart(e) {
@@ -269,7 +269,7 @@
 	}
 
 	function handleDrag(e){
-		$("div[id^='feat']").css('border', '2px solid green');
+		$("div[id^='feat']:first-child").css('border', '2px solid green');
 	}	
 
 	function handleDragLeave(e){
