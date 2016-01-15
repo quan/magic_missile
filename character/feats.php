@@ -212,7 +212,6 @@
 
 	//Displays full_text for feat when a feat is clicked
 	$('.pea').click(function(){
-
 		var full_id = 'feats/full.php ' + '#' + $(this).attr('id') + '_text';
 		$('.below').load(full_id);
 	});
@@ -236,14 +235,7 @@
 		
 	});
 
-	//Checks if all slots are filled then shows Next Button
-	function lockCheck(){
-
-	}
-
-	$('div[id^=lock]').on('click', function(){
-		alert('locked');
-	});
+	$("div[id^='feat']").siblings("div[id^='lock']").css('border', '5px solid blue');
 
 
 	//-------------------------DRAG AND DROP----------------------------//
