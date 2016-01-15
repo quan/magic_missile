@@ -7,7 +7,7 @@
 		$_SESSION['char_domain'] = $_POST['char_domain'];
 		$_SESSION['char_school'] = $_POST['char_school'];
 		$_SESSION['char_alignment'] = $_POST['char_alignment'];
-		header('location: rolls.php');
+		header('location: suex.php');
 	}
 
 	include('../db.php');

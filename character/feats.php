@@ -20,6 +20,8 @@
 
 	function normal($string) {
 		$string = str_replace(' ', '', $string);
+		$string = str_replace('(', '', $string);
+		$string = str_replace(')', '', $string);
 		$string = strtolower($string);
 		return $string;
 	}
@@ -92,12 +94,15 @@
 
 		.feat_slot{
 			background-image: url('img/burnedinbutton.png');
-			background-size: 165px 50px;
+			background-size: 165px 60px;
 			background-color: transparent;
-			height: 50px;
+			height: 60px;
 			width: 165px;
 			font-family: inherit;
-			border: none;
+			border: 2px solid transparent;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 		.pod{
 			border: 5px solid #000;
@@ -115,10 +120,10 @@
 		.pea{
 			background-color: #fff;
 			border: 3px solid #000;
-			font-size: 1em;
-			width: 140px;
-			height: 50px;
-			margin: 10px;
+			font-size: 0.9em;
+			width: 145px;
+			height: 40px;
+			margin: 5px;
 			text-align: center;
 			position: relative;
 			display: flex;
@@ -181,8 +186,11 @@
 				<div id="submenu" class="shadow">
 
 					<?php
-						for ($i=0; $i < feat_num(); $i++) { 
-							echo '<div style="display: flex; flex-direction: row; align-items: center;"><div class="feat_slot" id="feat_' . $i . '"></div><div id="lock' . $i . '" class="unlock"></div></div>';
+						for ($i=1; $i <= feat_num(); $i++) { 
+							echo '<div style="display: flex; flex-direction: row; align-items: center;">
+									<div class="feat_slot" id="feat_' . $i . '"></div>
+									<div id="lock' . $i . '" class="unlock"></div>
+								</div>';
 						}
 					?>
 
@@ -210,6 +218,9 @@
 	//Hides Next Button
 	$('#next_button').hide();
 
+	//Number of feats
+	var feat_num = <?php echo feat_num(); ?>;
+
 	//Displays full_text for feat when a feat is clicked
 	$('.pea').click(function(){
 		var full_id = 'feats/full.php ' + '#' + $(this).attr('id') + '_text';
@@ -220,12 +231,17 @@
 	$('div[id^=lock]').click(function(){
 
 		var slot = $(this).parent().find('div[id^=feat]');
+		var lastLock = 'lock' + String(feat_num);
 		
 		if (slot.html() != "" && $(this).hasClass('unlock')) {
 			$(this).removeClass('unlock');
 			$(this).addClass('lock');
 			slot.find('.pea').css('color', 'red');
 			slot.find('.pea').attr('draggable', false);
+			//Checks if last feat and shows Next Button
+			if ($(this).attr('id') == lastLock) {
+				$('#next_button').show();
+			};
 		} else {
 			$(this).removeClass('lock');
 			$(this).addClass('unlock');
@@ -235,7 +251,7 @@
 		
 	});
 
-	$("div[id^='feat']").siblings("div[id^='lock']").css('border', '5px solid blue');
+	
 
 
 	//-------------------------DRAG AND DROP----------------------------//
@@ -243,8 +259,6 @@
 	//dragstart function
 	function handleDragStart(e) {
 		this.style.opacity = '0.5';
-
-		
 		e.dataTransfer.setData('text/html', this.id);
 	}
 
@@ -252,28 +266,25 @@
 		if (e.preventDefault) {
 			e.preventDefault();
 		}
-
 		return false;
 	}
 
 	function handleDragEnter(e){
-		this.style.color = 'white';
+		return false;
 	}
 
 	function handleDrag(e){
-		$("div[id^='feat']:first-child").css('border', '2px solid green');
+		$('#submenu').find('.unlock').siblings().eq(0).css('background-color', 'green');
 	}	
 
 	function handleDragLeave(e){
-		this.style.color = 'black';
+		return false;
 	}
 
 	function handleDrop(e){
 		if (e.stopPropogation) {
 			e.stopPropogation();
 		};
-
-		$("div[id^='feat']").css('border', 'none');
 
 		if ($(this).siblings().hasClass('lock')) {
 			return false;
@@ -312,6 +323,8 @@
 	function handleDragEnd(e){
 		this.style.opacity = '1';
 		this.style.color = 'black';
+
+		$('#submenu').find('div[id^=feat]').css('background-color', 'transparent');
 	}
 
 	var peas = $('.pea');

@@ -1,6 +1,6 @@
 <!--PHP-->
 <?php 
-	$options  = ["race", "class", "rolls", "skills", "feats", "spells", "pets", "items", "info"];
+	$options  = ["race", "class", "suex", "rolls", "skills", "feats", "spells", "items", "info"];
 	$page_name =  basename($_SERVER['PHP_SELF']);
 	$page_name = str_replace(".php", "", $page_name);
 	$cont = TRUE;
@@ -34,7 +34,7 @@
 	left: 22px;
 	text-decoration: none;
 }
-.nameRace, .nameClass, .nameRolls{
+.nameRace, .nameClass, .nameRolls, .nameSuex{
 	color: #000;
 	position: absolute;
 	top: 1px;

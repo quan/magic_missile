@@ -4,7 +4,7 @@
 	include('../db.php');
 
 	if (isset($_POST['save'])) {
-		header('location: pets.php');
+		header('location: items.php');
 	}
 
 ?>
