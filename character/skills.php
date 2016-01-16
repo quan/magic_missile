@@ -2,7 +2,7 @@
 	session_start();
 
 	if (isset($_POST['save'])) {
-		$_SESSION['char_feat'] = $_POST['char_feat'];
+		$_SESSION['char_skill'] = $_POST['char_skill'];
 		header('location: feats.php');
 	}
 	
@@ -46,7 +46,6 @@
 		return ($plus + $hum + $mod) * (4 + $lvl -1);
 	}
 
-
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -56,7 +55,13 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<!--JS-->
 	<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
-
+	<script>
+		//Defines Skill List object
+		var skillList = new Object();
+		skillList.skills = [];
+		skillList.points = [];
+		
+	</script>
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="character.css" />
 	<style>
@@ -214,7 +219,6 @@
 	</div>
 	<div class="middle">
 		<div class="content">
-			
 
 			<div class="above">
 				<div id="subtitle" class="glow1">
@@ -314,6 +318,7 @@
 		if ($('.remain').html() == 1) {
 			$('#next_button').hide();
 		};
+		updatePoints();
 	});	
 	//Plus button for Class Skills
 	$('.plus').click(function(){
@@ -326,6 +331,7 @@
 		if ($('.remain').html() == 0) {
 			$('#next_button').show();
 		};
+		updatePoints();
 	});	
 
 	//Minus button for Cross Class Skills
@@ -358,6 +364,7 @@
 		if ($('.remain').html() == 0) {
 			$('#next_button').show();
 		};
+
 	});
 
 	//Finds all the Skills which have a fill in the blank
@@ -372,6 +379,19 @@
 		$(this).removeClass('writeIn');
 	});
 
+	//Creates JSON array of Class skills and points
+	
+	function updatePoints() {
+		for (var i = 0; i < $('.pea').length; i++) {
+			skillList.skills[i] = $('.pea').eq(i).find('.skill_name').html();
+			skillList.points[i] = $('.pea').eq(i).find('.points').html();
+		}
+		console.log(skillList);
+	}
+
+	$('#next_button').click(function(){
+		$('#char_skill').val(JSON.stringify(skillList));
+	});
 
 </script>
 

@@ -69,8 +69,4 @@
 	</div>
 
 </body>
-<script>
-	$('#next_button').attr('type', 'hidden');
-	$('#next_button').prop('disabled', true);
-</script>
 </html>

@@ -14,7 +14,13 @@
 	$cha = $_SESSION['char_cha'];
 	$dex = $_SESSION['char_dex'];
 	$con = $_SESSION['char_con'];
-	$skills = $_SESSION['char_skill'];
+	//This one is a JSON array
+	$skillz = json_decode($_SESSION['char_skill'], true);
+	for ($i=0; $i < count($skillz['skills']); $i++) { 
+		$skill[$i] = $skillz['skills'][$i];
+		$point[$i] = $skillz['points'][$i];
+	}
+	$skill1 = $skillz["skills"][1];
 	$pet = $_SESSION['char_pet'];
 
 	ini_set('display_errors', 1);
@@ -24,21 +30,24 @@
 	$pdf->AddPage();
 	$pdf->SetFont('Arial','B',16);
 
-	$pdf->Cell(50,10,'Level: ' . $level,1,1,"L");
-	$pdf->Cell(50,10,'Race: ' . $race,1,1,"L");
-	$pdf->Cell(50,10,'Class: ' . $class,1,1,"L");
-	$pdf->Cell(50,10,'Deity: ' . $deity,1,1,"L");
-	$pdf->Cell(50,10,'Domain: ' . $domain,1,1,"L");
-	$pdf->Cell(50,10,'School: ' . $school,1,1,"L");
-	$pdf->Cell(50,10,'Roll: ' . $roll,1,1,"L");
-	$pdf->Cell(50,10,'Strength: ' . $str,1,1,"L");
-	$pdf->Cell(50,10,'Dexterity: ' . $dex,1,1,"L");
-	$pdf->Cell(50,10,'Constitution: ' . $con,1,1,"L");
-	$pdf->Cell(50,10,'Intelligence: ' . $int,1,1,"L");
-	$pdf->Cell(50,10,'Wisdom: ' . $wis,1,1,"L");
-	$pdf->Cell(50,10,'Charisma: ' . $cha,1,1,"L");
-	$pdf->Cell(50,10,'Skills: ' . $skills,1,1,"L");
-	$pdf->Cell(50,10,'Pet: ' . $pet,1,1,"L");
+	$pdf->Cell(100,10,'Level: ' . $level,1,1,"L");
+	$pdf->Cell(100,10,'Race: ' . $race,1,1,"L");
+	$pdf->Cell(100,10,'Class: ' . $class,1,1,"L");
+	$pdf->Cell(100,10,'Deity: ' . $deity,1,1,"L");
+	$pdf->Cell(100,10,'Domain: ' . $domain,1,1,"L");
+	$pdf->Cell(100,10,'School: ' . $school,1,1,"L");
+	$pdf->Cell(100,10,'Roll: ' . $roll,1,1,"L");
+	$pdf->Cell(100,10,'Strength: ' . $str,1,1,"L");
+	$pdf->Cell(100,10,'Dexterity: ' . $dex,1,1,"L");
+	$pdf->Cell(100,10,'Constitution: ' . $con,1,1,"L");
+	$pdf->Cell(100,10,'Intelligence: ' . $int,1,1,"L");
+	$pdf->Cell(100,10,'Wisdom: ' . $wis,1,1,"L");
+	$pdf->Cell(100,10,'Charisma: ' . $cha,1,1,"L");
+	for ($i=0; $i < count($skill); $i++) { 
+		$j = $i +1;
+		$pdf->Cell(100,10,'Skill ' . $j . ': ' . $skill[$i] . ' , ' . $point[$i],1,1,"L");
+	}
+	$pdf->Cell(100,10,'Pet: ' . $pet,1,1,"L");
 
 
 	$pdf->Output();
