@@ -30,7 +30,7 @@
 <body class="noselect">
 	<?php $level=0; include('logo.php');?>
 	
-<div class="board shadowLight">
+<div class="board">
 	<div class="top">
 		<?php $level=0; include('nav.php'); ?>
 	</div>
