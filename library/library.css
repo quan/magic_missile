@@ -22,6 +22,8 @@ html{
 	}
 body{
 	height: 100%;
+	background-image: url('../img/mapbg.jpg');
+	background-position: top center;
 	background-color: #000;
 	text-align: center;
 	font-family: 'Kaushan Script', cursive;

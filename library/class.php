@@ -36,7 +36,7 @@ function normal($string)
 	<!--Logo Area-->
 	<?php $level=1; include('logo.php'); ?>
 	<!--Nav Bar-->
-	<div class=" top shadowLight" style="position: relative; z-index: 1;">
+	<div class="top" style="position: relative; z-index: 1;">
 	<?php $level = 1; include('nav.php'); ?>
 	</div>
 	<div class="title">
