@@ -3,6 +3,7 @@
 
 	if (isset($_POST['save'])) {
 		$_SESSION['char_skill'] = $_POST['char_skill'];
+		$_SESSION['char_xskill'] = $_POST['char_xskill'];
 		header('location: feats.php');
 	}
 	
@@ -60,7 +61,10 @@
 		var skillList = new Object();
 		skillList.skills = [];
 		skillList.points = [];
-		
+		//Defines Cross Class Skill List object
+		var xskillList = new Object();
+		xskillList.xskills = [];
+		xskillList.xpoints = [];
 	</script>
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="character.css" />
@@ -318,8 +322,9 @@
 		if ($('.remain').html() == 1) {
 			$('#next_button').hide();
 		};
-		updatePoints();
-	});	
+		updateSkills();
+	});
+
 	//Plus button for Class Skills
 	$('.plus').click(function(){
 		if ($('.remain').html() > 0 && $(this).siblings('.points').html() < maxSkill(<?php echo $_SESSION['char_level']; ?>)) {
@@ -331,7 +336,7 @@
 		if ($('.remain').html() == 0) {
 			$('#next_button').show();
 		};
-		updatePoints();
+		updateSkills();
 	});	
 
 	//Minus button for Cross Class Skills
@@ -345,7 +350,9 @@
 		if ($('.remain').html() > 0) {
 			$('#next_button').hide();
 		};
-	});	
+		updateXSkills();
+	});
+
 	//Plus button for Cross Class Skills
 	$('.plusx').click(function(){
 		if ($('.remain').html() > 1 && $(this).siblings('.points').html() < maxSkillX(<?php echo $_SESSION['char_level']; ?>)) {
@@ -364,7 +371,7 @@
 		if ($('.remain').html() == 0) {
 			$('#next_button').show();
 		};
-
+		updateXSkills();
 	});
 
 	//Finds all the Skills which have a fill in the blank
@@ -381,7 +388,7 @@
 
 	//Creates JSON array of Class skills and points
 	
-	function updatePoints() {
+	function updateSkills() {
 		for (var i = 0; i < $('.pea').length; i++) {
 			skillList.skills[i] = $('.pea').eq(i).find('.skill_name').html();
 			skillList.points[i] = $('.pea').eq(i).find('.points').html();
@@ -389,8 +396,17 @@
 		console.log(skillList);
 	}
 
+	function updateXSkills(){
+		for (var k = 0; k < $('.peax').length; k++) {
+			xskillList.xskills[k] = $('.peax').eq(k).find('.skill_name').html();
+			xskillList.xpoints[k] = $('.peax').eq(k).find('.points').html();
+		}
+		console.log(xskillList);
+	}
+
 	$('#next_button').click(function(){
 		$('#char_skill').val(JSON.stringify(skillList));
+		$('#char_xskill').val(JSON.stringify(xskillList));
 	});
 
 </script>

@@ -129,6 +129,7 @@
 			<input id="char_con" name="char_con" type="hidden" />
 			<!--Skills-->
 			<input id="char_skill" name="char_skill" type="hidden" />
+			<input id="char_xskill" name="char_xskill" type="hidden" />
 
 			<!--Pet-->
 			<input id="char_pet" name="char_pet" type="hidden" />

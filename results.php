@@ -19,6 +19,12 @@
 	for ($i=0; $i < count($skillz['skills']); $i++) { 
 		$skill[$i] = $skillz['skills'][$i];
 		$point[$i] = $skillz['points'][$i];
+	}	
+	//This one is also a JSON array
+	$xskillz = json_decode($_SESSION['char_xskill'], true);
+	for ($i=0; $i < count($xskillz['xskills']); $i++) { 
+		$xskill[$i] = $xskillz['xskills'][$i];
+		$xpoint[$i] = $xskillz['xpoints'][$i];
 	}
 
 	$pet = $_SESSION['char_pet'];
@@ -46,6 +52,10 @@
 	for ($i=0; $i < count($skill); $i++) { 
 		$j = $i + 1;
 		$pdf->Cell(100,10,'Skill ' . $j . ': ' . $skill[$i] . ' , ' . $point[$i],1,1,"L");
+	}	
+	for ($i=0; $i < count($xskill); $i++) { 
+		$j = $i + 1;
+		$pdf->Cell(100,10,'CrossSkill ' . $j . ': ' . $xskill[$i] . ' , ' . $xpoint[$i],1,1,"L");
 	}
 
 
