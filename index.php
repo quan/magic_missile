@@ -185,6 +185,22 @@
 				}				
 				
 			}
+
+			//Zoom window on screen resize
+			$(document).ready(function(){
+				$(window).on('resize', function(){
+					var height_ratio = $(window).height()/850;
+					var width_ratio = $(window).width()/950;
+					if (height_ratio < 1 || width_ratio < 1) {
+						if (height_ratio < width_ratio) {
+							$('body').css('zoom', height_ratio);
+						} else {
+							$('body').css('zoom', width_ratio);
+						}	
+					}
+				});
+			});
+			
 		</script>
 
 		

@@ -20,7 +20,7 @@
 		$skill[$i] = $skillz['skills'][$i];
 		$point[$i] = $skillz['points'][$i];
 	}
-	$skill1 = $skillz["skills"][1];
+
 	$pet = $_SESSION['char_pet'];
 
 	ini_set('display_errors', 1);
@@ -44,10 +44,9 @@
 	$pdf->Cell(100,10,'Wisdom: ' . $wis,1,1,"L");
 	$pdf->Cell(100,10,'Charisma: ' . $cha,1,1,"L");
 	for ($i=0; $i < count($skill); $i++) { 
-		$j = $i +1;
+		$j = $i + 1;
 		$pdf->Cell(100,10,'Skill ' . $j . ': ' . $skill[$i] . ' , ' . $point[$i],1,1,"L");
 	}
-	$pdf->Cell(100,10,'Pet: ' . $pet,1,1,"L");
 
 
 	$pdf->Output();

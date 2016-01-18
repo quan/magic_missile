@@ -35,6 +35,10 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<!--JS-->
 	<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+	<script>
+		var featList = new Object();
+		featList.feats = [];
+	</script>
 
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="character.css" />
@@ -238,6 +242,7 @@
 			$(this).addClass('lock');
 			slot.find('.pea').css('color', 'red');
 			slot.find('.pea').attr('draggable', false);
+			
 			//Checks if last feat and shows Next Button
 			if ($(this).attr('id') == lastLock) {
 				$('#next_button').show();
