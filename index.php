@@ -187,8 +187,8 @@
 			}
 
 			//Zoom window on screen resize
-			$(document).ready(function(){
-				$(window).on('resize', function(){
+
+			function reSize(){
 					var height_ratio = $(window).height()/850;
 					var width_ratio = $(window).width()/950;
 					if (height_ratio < 1 || width_ratio < 1) {
@@ -198,8 +198,17 @@
 							$('body').css('zoom', width_ratio);
 						}	
 					}
-				});
+				}
+
+			$(document).ready(function(){
+				reSize();
 			});
+
+			$(window).on('resize', function(){
+				reSize();
+			});
+
+			
 			
 		</script>
 
