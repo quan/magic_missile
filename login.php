@@ -4,7 +4,6 @@ $error=''; // Variable To Store Error Message
 $message_style = '';
 $user_error_style = '';
 $pass_error_style = '';
-
 if (isset($_POST['login'])) {
 	//Check for both fields empty
 	if (empty($_POST['username']) && empty($_POST['password'])) {
@@ -58,7 +57,6 @@ if (isset($_POST['login'])) {
 	$error = "Login Successful";
 	$message_style = "success";
 	header( "refresh:0.7; url=home.php" ); // Redirecting To Other Page
-
 	end:
 }
 ?>
@@ -69,7 +67,6 @@ if (isset($_POST['login'])) {
 		header('location: new_char.php');
 		}
 ?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -125,6 +122,8 @@ if (isset($_POST['login'])) {
 			font-size: 1em;
 			border: none;
 		}
+
+
 		.login_wrapper{
 			background-image: url("img/parchment.png");
 			background-size: 500px 400px;
@@ -226,10 +225,12 @@ if (isset($_POST['login'])) {
 						<input id="password" name="password" placeholder="password" type="password" <?php echo $pass_error_style; ?> />
 						<br></br>
 						<!--Buttons-->
-						<button id="register_button" class="default shadow" style="font-size: 14pt;">Register for Free</button>
+						
 						<!--<button class="default" style="font-size: 14pt;">Log In</button>-->
 						<input type="submit" value="Log In" name="login" id="login_button" class="shadow"/>
 					</form>
+
+					<button id="register_button" class="default shadow" style="font-size: 14pt;">Register for Free</button>
 
 				
 
@@ -283,12 +284,14 @@ if (isset($_POST['login'])) {
 </body>
 
 	<script>
-		$('#register').hide();
-
-		$('#register_button').click(function(){
-			$('#login').hide();
-			$('#register').show();
+		$(document).ready(function(){
+			$('#register').hide();
+			$('#register_button').click(function(){
+				$('#login').hide();
+				$('#register').show();
+			});
 		});
+
 	</script>
 
 </html>
