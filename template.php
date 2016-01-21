@@ -6,9 +6,11 @@
 	<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 	<!--JS-->
 	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="js/jquery.bxslider.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
 	<link rel="stylesheet" type="text/css" href="character/character.css" />
 
 	<style>
@@ -37,11 +39,22 @@
 		<!--Sign Content-->
 		<div class="middle">
 
-				
+			<div class="slider1">
+			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar1"></div>
+			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar2"></div>
+			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar3"></div>
+			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar4"></div>
+			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar5"></div>
+			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar6"></div>
+			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar7"></div>
+			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar8"></div>
+			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar9"></div>
+			</div>				
 
 		</div>
 
 		<div class="bottom">
+			<!--Footer-->
 			<div style="padding: 20px 0 0 0; font-size: 16pt;">
 				<?php $level=0; include('footer.php'); ?>
 			</div>
@@ -52,6 +65,16 @@
 		
 		
 	<script content-type="text/Javascript">
+
+		//Div Carousel
+		$(document).ready(function(){
+		  $('.slider1').bxSlider({
+		    slideWidth: 600,
+		    minSlides: 1,
+		    maxSlides: 1,
+		    slideMargin: 0
+		  });
+		});
 
 		//Zoom window on screen resize
 
