@@ -6,11 +6,12 @@
 	<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 	<!--JS-->
 	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
-	<script type="text/javascript" src="js/jquery.bxslider.js"></script>
+	<script type="text/javascript" src="js/unslider-min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
-	<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
+	<link rel="stylesheet" type="text/css" href="css/unslider.css" />
+	<link rel="stylesheet" type="text/css" href="css/unslider-dots.css" />
 	<link rel="stylesheet" type="text/css" href="character/character.css" />
 
 	<style>
@@ -19,6 +20,20 @@
 			background-position: center top;
 			background-repeat: no-repeat;
 			background-color: #000;
+		}
+		.view_window{
+			width: calc(100% - 60px);
+			height: 100%;
+			position: relative;
+			margin: auto;
+			overflow: hidden;
+			display: flex;
+			flex-direction: row;
+		}
+		.prev_arrow, .next_arrow{
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 	</style>
 </head>
@@ -39,47 +54,66 @@
 		<!--Sign Content-->
 		<div class="middle">
 
-			<div class="slider1">
-			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar1"></div>
-			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar2"></div>
-			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar3"></div>
-			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar4"></div>
-			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar5"></div>
-			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar6"></div>
-			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar7"></div>
-			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar8"></div>
-			  <div class="slide"><img src="http://placehold.it/350x150&text=FooBar9"></div>
-			</div>				
+			<div class="view_window">
 
-		</div>
+				<div class="prev_arrow"><image src="img/prev.png" width="20px"></image></div>
 
-		<div class="bottom">
-			<!--Footer-->
-			<div style="padding: 20px 0 0 0; font-size: 16pt;">
-				<?php $level=0; include('footer.php'); ?>
+				<div class="my-slider" style="margin: auto; height: 100%; width: 100%;">
+					<ul>
+
+						<li><?php include 'character/race/default.php'; ?></li>
+						<li><?php include 'character/class/default.php'; ?></li>
+						<li><?php include 'character/rolls/default.php'; ?></li>
+					</ul>
+				</div>
+
+				<div class="next_arrow"><image src="img/next.png" width="20px"></image></div>
 			</div>
+
+
+
 		</div>
+
+		<div class="bottom"></div>
 		
 	</div>
 	
+	<!--Footer-->
+	<div >
+		<?php $level=0; include 'footer.php'; ?>
+	</div>
 		
 		
 	<script content-type="text/Javascript">
 
 		//Div Carousel
+
 		$(document).ready(function(){
-		  $('.slider1').bxSlider({
-		    slideWidth: 600,
-		    minSlides: 1,
-		    maxSlides: 1,
-		    slideMargin: 0
-		  });
+			$('.my-slider').unslider({
+				animation: 'horizontal',
+				autoplay: false,
+				arrows: false,
+				keys: false,
+				nav: false
+				
+			});
+
+			$('.next_arrow').click(function(){
+				$('.my-slider').unslider('next');
+			});			
+
+			$('.prev_arrow').click(function(){
+				$('.my-slider').unslider('prev');
+			});
 		});
+	</script>
+
+	<script>
 
 		//Zoom window on screen resize
 
 		function reSize(){
-				var height_ratio = $(window).height()/850;
+				var height_ratio = $(window).height()/900;
 				var width_ratio = $(window).width()/950;
 				if (height_ratio < 1 || width_ratio < 1) {
 					if (height_ratio < width_ratio) {
