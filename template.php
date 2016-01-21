@@ -11,7 +11,6 @@
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<link rel="stylesheet" type="text/css" href="css/unslider.css" />
-	<link rel="stylesheet" type="text/css" href="css/unslider-dots.css" />
 	<link rel="stylesheet" type="text/css" href="character/character.css" />
 
 	<style>
@@ -63,7 +62,7 @@
 
 						<li><?php include 'character/race/default.php'; ?></li>
 						<li><?php include 'character/class/default.php'; ?></li>
-						<li><?php include 'character/rolls/default.php'; ?></li>
+						<li><?php include 'character/suex/default.php'; ?></li>
 					</ul>
 				</div>
 
@@ -84,11 +83,12 @@
 	</div>
 		
 		
-	<script content-type="text/Javascript">
+	<script>
 
 		//Div Carousel
 
 		$(document).ready(function(){
+			reSize();
 			$('.my-slider').unslider({
 				animation: 'horizontal',
 				autoplay: false,
@@ -97,44 +97,18 @@
 				nav: false
 				
 			});
-
-			$('.next_arrow').click(function(){
-				$('.my-slider').unslider('next');
-			});			
-
-			$('.prev_arrow').click(function(){
-				$('.my-slider').unslider('prev');
-			});
-		});
-	</script>
-
-	<script>
-
-		//Zoom window on screen resize
-
-		function reSize(){
-				var height_ratio = $(window).height()/900;
-				var width_ratio = $(window).width()/950;
-				if (height_ratio < 1 || width_ratio < 1) {
-					if (height_ratio < width_ratio) {
-						$('body').css('zoom', height_ratio);
-					} else {
-						$('body').css('zoom', width_ratio);
-					}	
-				}
-			}
-
-		$(document).ready(function(){
-			reSize();
 		});
 
-		$(window).on('resize', function(){
-			reSize();
+		$('.next_arrow').click(function(){
+			$('.my-slider').unslider('next');
+		});			
+
+		$('.prev_arrow').click(function(){
+			$('.my-slider').unslider('prev');
 		});
+
 		
 	</script>
-
-		
 
 </body>
 	
