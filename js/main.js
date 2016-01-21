@@ -1,23 +1,28 @@
-//Fade Functions
-$(function(){
-  $('.fade').hide().fadeIn(750);
+//Functions to run on document ready
+$(document).ready(function(){
+	//Resize the screen
+	reSize();
 });
 
-$(function(){
-  $('.fade1').hide().fadeIn(250);
+//Window resize function
+$(window).on('resize', function(){
+	reSize();
 });
 
-$(function(){
-  $('.fade2').hide().fadeIn(1500);
-});
 
-//Show-Hide Divs
-function ReverseDisplay(d) {
-	if(document.getElementById(d).style.display == 'block') { 
-		document.getElementById(d).style.display = "none";
-		}
-	else {
-		document.getElementById(d).style.display = "block"; 
-		}
+
+//FUNCTIONS
+
+//Zoom window on screen resize
+function reSize(){
+	var height_ratio = $(window).height()/900;
+	var width_ratio = $(window).width()/950;
+	if (height_ratio < 1 || width_ratio < 1) {
+		if (height_ratio < width_ratio) {
+			$('body').css('zoom', height_ratio);
+		} else {
+			$('body').css('zoom', width_ratio);
+		}	
+	}
 }
 
