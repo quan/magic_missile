@@ -5,7 +5,7 @@
 	<title>Library Home</title>
 	<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 	<!--JS-->
-	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<!--CSS-->

@@ -14,8 +14,8 @@
 	<title>Home | Magic Missile</title>
 	<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 	<!--JS-->
-	<script type="text/javascript" src="../js/jquery.js"></script>
-	<script type="text/javascript" src="../js/index.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<link rel="stylesheet" type="text/css" href="character/character.css" />

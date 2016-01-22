@@ -27,8 +27,8 @@
 <head>
 	<title><?php echo ucfirst($login_session); ?> | Magic Missile</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	<script type="text/javascript" src="../js/jquery.js"></script>
-	<script type="text/javascript" src="../js/home.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/home.js"></script>
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<style>

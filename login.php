@@ -73,9 +73,8 @@ if (isset($_POST['login'])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!--JS-->
-	<script type="text/javascript" src="../js/jquery.js"></script>
-	<script type="text/javascript" src="../js/login.js"></script>
-	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 	<title>Home | Magic Missile</title>
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
@@ -289,7 +288,6 @@ if (isset($_POST['login'])) {
 				$('#register').show();
 			});
 		});
-
 	</script>
 
 </html>
