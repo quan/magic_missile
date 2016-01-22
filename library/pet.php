@@ -10,7 +10,7 @@
 	<title>Library Pet</title>
 	<link rel="stylesheet" type="text/css" href="library.css">
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
 </head>
 
 <body>

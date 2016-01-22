@@ -12,9 +12,10 @@ function normal($string)
 
 <head>
 	<title>Library Alignment</title>
+	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="library.css">
 	<!--JS-->
-	<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script>
 		function pop(div) {
 			document.getElementById(div).style.display='block';

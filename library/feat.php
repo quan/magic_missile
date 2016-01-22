@@ -8,9 +8,11 @@
 
 <head>
 	<title>Library Feat</title>
-	<link rel="stylesheet" type="text/css" href="library.css">
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+	<!--CSS-->
+	<link rel="stylesheet" type="text/css" href="library.css">
+	<!--JS-->
+	<script type="text/javascript" src="../js/jquery.js"></script>
 </head>
 
 <body>

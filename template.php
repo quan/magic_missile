@@ -5,9 +5,11 @@
 	<title>Template | Magic Missile</title>
 	<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 	<!--JS-->
-	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/unslider-min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/template.js"></script>
+
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<link rel="stylesheet" type="text/css" href="css/unslider.css" />

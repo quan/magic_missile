@@ -4,9 +4,15 @@
 	include('../db.php');
 
 ?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
+<!--JS-->
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="../js/items.js"></script>	
+<!--CSS-->
+<link rel="stylesheet" type="text/css" href="character.css" />
 <head>
 	<title>Select Items | Magic Missile</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
