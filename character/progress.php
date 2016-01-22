@@ -76,6 +76,7 @@
 	font-size: inherit;
 	color: #fff;
 	cursor: pointer;
+	padding:0px;
 }
 </style>
 
