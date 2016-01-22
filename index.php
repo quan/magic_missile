@@ -17,7 +17,7 @@
 	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<!--CSS-->
-	<link rel="stylesheet" type="text/css" href="css/index.cssx" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<link rel="stylesheet" type="text/css" href="character/character.css" />
 
 	<style>

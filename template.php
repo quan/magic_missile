@@ -47,14 +47,14 @@
 <body class="noselect">
 
 		<!--Logo Area-->
-		<?php $level=0; include('logo.php'); ?>
+		<?php $level=0; include 'common/logo.php'; ?>
 
 		
 	<div class="board">
 
 		<!--Nav Bar-->
 		<div class="top">
-			<?php $level=0; include('nav.php'); ?>
+			<?php $level=0; include 'common/nav.php'; ?>
 		</div>
 		
 		
@@ -87,7 +87,7 @@
 	
 	<!--Footer-->
 	<div >
-		<?php $level=0; include 'footer.php'; ?>
+		<?php $level=0; include 'common/footer.php'; ?>
 	</div>
 		
 		
