@@ -16,7 +16,7 @@ function normal($string)
 	<title>Library Race</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<!--JS-->
-	<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script>
 		function pop(div) {
 			document.getElementById(div).style.display='block';

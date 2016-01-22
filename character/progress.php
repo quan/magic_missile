@@ -5,6 +5,10 @@
 	$page_name = str_replace(".php", "", $page_name);
 	$cont = TRUE;
 ?>
+<!--JS-->
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="../js/progress.js"></script>	
 
 <!--CSS-->
 <style type="text/css">

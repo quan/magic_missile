@@ -15,7 +15,10 @@
 
 <html>
 <head>
-	<script type="text/javascript" src="../../js/jquery-1.11.3.js"></script>
+	<!--JS-->
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/full.js"></script>	
 </head>
 
 <body>

@@ -26,7 +26,9 @@
 <html>
 <head>
 	<title><?php echo ucfirst($login_session); ?> | Magic Missile</title>
-
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/guest.js"></script>
+	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 
 </head>

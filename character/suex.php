@@ -15,8 +15,9 @@
 	<title>Select Pets | Magic Missile</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<!--JS-->
-	<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/suex.js"></script>	
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="character.css" />
 	<style>
