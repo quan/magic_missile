@@ -45,11 +45,11 @@
 </head>
 
 <body>
-	<?php $level=1; include('logo.php');?>
+	<?php $level=1; include '../common/logo.php';?>
 	
 <div class="board">
 	<div class="top">
-		<?php include('nav.php'); ?>
+		<?php include '../common/nav.php'; ?>
 	</div>
 	<div class="middle">
 		<div class="content">
@@ -60,12 +60,12 @@
 		</div>
 	</div>
 	<div class="bottom">
-		<?php include('progress.php') ?>
+		<?php include 'progress.php'; ?>
 	</div>
 </div>
 
 	<div style="padding: 10px 0 0 0">
-		<?php $level=1; include('footer.php'); ?>
+		<?php $level=1; include '../common/footer.php'; ?>
 	</div>
 
 </body>

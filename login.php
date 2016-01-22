@@ -195,14 +195,14 @@ if (isset($_POST['login'])) {
 <body>
 
 	<!--Logo Area-->
-	<?php $level=0; include('logo.php'); ?>
+	<?php $level=0; include 'common/logo.php'; ?>
 	<!-- -->
 	
 	<div class="board">
 
 		<div class="top">
 			<!--Nav Bar-->
-			<?php $level=0; include('nav.php'); ?>
+			<?php $level=0; include 'common/nav.php'; ?>
 		</div>
 
 		<!--Sign Content-->
@@ -268,17 +268,14 @@ if (isset($_POST['login'])) {
 
 		</div>
 
-		<div class="bottom">
-			<!--Footer-->
-			<div style="padding: 20px 0 0 0; font-size: 16pt;">
-			<?php $level=0; include('footer.php'); ?>
-			</div>
-		</div>
+		<div class="bottom"></div>
 		
-		
-
 	</div>
 	
+	<!--Footer-->
+	<div>
+		<?php $level=0; include 'common/footer.php'; ?>
+	</div>
 
 
 </body>
