@@ -88,7 +88,7 @@
 	</div>
 	
 	<!--Footer-->
-	<div >
+	<div>
 		<?php $level=0; include 'common/footer.php'; ?>
 	</div>
 		

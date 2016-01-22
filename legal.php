@@ -48,13 +48,11 @@
 
 		</div>
 	</div>
-
-	<div class="bottom">
-		<div style="padding: 20px 0 0 0; font-size: 16pt;">
-			<?php $level=0; include 'common/footer.php'; ?>
-		</div>
-	</div>
+	<div class="bottom"></div>
 </div>
+	<div>
+		<?php $level=0; include 'common/footer.php'; ?>
+	</div>
 
 	
 	
