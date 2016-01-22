@@ -137,7 +137,7 @@
 		<!--            VERSION GOODIE        -->
 
 		<!--Audio-->
-		<audio id="sound" src="snd/moon.mp3" loop></audio>
+		<audio id="sound" src="snd/girllovesme.mp3" loop></audio>
 		<!--Animation GIF with Mute Button-->
 
 			<img src="img/unmute.png" id="muteButton" onClick="muteTheThing()" title="Mute/Unmute" />
