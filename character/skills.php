@@ -71,6 +71,7 @@
 	<style>
 		.content{
 			flex-direction: column;
+			-webkit-flex-direction: column;
 		}
 		.above{
 			height: 175px;
@@ -118,26 +119,37 @@
 			margin: -55px auto 0 auto;
 			position: relative;
 			display: flex;
+			display: -webkit-flex;
 			flex-direction: row;
+			-webkit-flex-direction: row;
 			justify-content: center;	
+			-webkit-justify-content: center;	
 			align-items: center;
+			-webkit-align-items: center;
 		}
 		.space{
 			width: 720px;
 			height: 285px;
 			margin: auto;
 			display: flex;
+			display: -webkit-flex;
 			flex-direction: row;
+			-webkit-flex-direction: row;
 		}
 		.podL{
 			background-color: transparent;
 			width: 360px;
 			height: 285px;
 			display: flex;
+			display: -webkit-lex;
 			flex-direction: row;
+			-webkit-flex-direction: row;
 			flex-wrap: wrap;
+			-webkit-flex-wrap: wrap;
 			justify-content: left;
+			-webkit-justify-content: left;
 			align-items: center;
+			-webkit-align-items: center;
 			overflow-y: auto;
 		}
 
@@ -146,10 +158,15 @@
 			width: 360px;
 			height: 285px;
 			display: flex;
+			display: -webkit-flex;
 			flex-direction: row;
+			-webkit-flex-direction: row;
 			flex-wrap: wrap;
+			-webkit-flex-wrap: wrap;
 			justify-content: left;
+			-webkit-justify-content: left;
 			align-items: center;
+			-webkit-align-items: center;
 			overflow-y: auto;
 		}
 		.pea, .peax{
@@ -158,8 +175,11 @@
 			height: 50px;
 			position: relative;
 			display: flex;
+			display: -webkit-flex;
 			flex-direction: row;
+			-webkit-flex-direction: row;
 			justify-content: space-between;
+			-webkit-justify-content: space-between;
 		}
 		.remain{
 			background-image: url('img/totalpoint.png');
@@ -169,9 +189,13 @@
 			margin: 0 20px 0 20px;
 			font-size: 1.5em;
 			display: flex;
+			display: -webkit-flex;
 			flex-diretion: row;
+			-webkit-flex-diretion: row;
 			align-items: center;
+			-webkit-align-items: center;
 			justify-content: center;
+			-webkit-justify-content: center;
 		}
 		.skill_name{
 			font-size: 1.25em;
@@ -179,7 +203,9 @@
 		}
 		.controls{
 			display: flex;
+			display: -webkit-flex;
 			flex-direction: row;
+			-webkit-flex-direction: row;
 		}
 		.points{
 			width: 30px;

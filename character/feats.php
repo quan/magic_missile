@@ -45,6 +45,7 @@
 	<style>
 		.content{
 			flex-direction: column;
+			-webkit-flex-direction: column;
 		}
 		.above{
 			height: 175px;
@@ -91,9 +92,13 @@
 			margin: -55px auto 0 auto;
 			position: relative;
 			display: flex;
+			display: -webkit-flex;
 			flex-direction: row;
+			-webkit-flex-direction: row;
 			justify-content: space-around;	
+			-webkit-justify-content: space-around;	
 			align-items: center;
+			-webkit-align-items: center;
 		}
 
 		.feat_slot{
@@ -105,8 +110,11 @@
 			font-family: inherit;
 			border: 2px solid transparent;
 			display: flex;
+			display: -webkit-flex;
 			justify-content: center;
+			-webkit-justify-content: center;
 			align-items: center;
+			-webkit-align-items: center;
 		}
 		.pod{
 			border: 5px solid #000;
@@ -115,10 +123,15 @@
 			height: 275px;
 			margin: auto;
 			display: flex;
+			display: -webkit-flex;
 			flex-direction: row;
+			-webkit-flex-direction: row;
 			flex-wrap: wrap;
+			-webkit-flex-wrap: wrap;
 			justify-content: center;
+			-webkit-justify-content: center;
 			align-items: center;
+			-webkit-align-items: center;
 			overflow-y: auto;
 		}
 		.pea{
@@ -131,9 +144,13 @@
 			text-align: center;
 			position: relative;
 			display: flex;
+			display: -webkit-flex;
 			flex-direction: row;
+			-webkit-flex-direction: row;
 			justify-content: center;
+			-webkit-justify-content: center;
 			align-items: center;
+			-webkit-align-items: center;
 		}
 		.unlock{
 			background-image: url('img/unlock.svg');
@@ -191,7 +208,7 @@
 
 					<?php
 						for ($i=1; $i <= feat_num(); $i++) { 
-							echo '<div style="display: flex; flex-direction: row; align-items: center;">
+							echo '<div style="display: flex; display: -webkit-flex; flex-direction: row; -webkit-flex-direction: row; align-items: center; -webkit-align-items: center;">
 									<div class="feat_slot" id="feat_' . $i . '"></div>
 									<div id="lock' . $i . '" class="unlock"></div>
 								</div>';
