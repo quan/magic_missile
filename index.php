@@ -76,14 +76,14 @@
 <body class="noselect">
 
 		<!--Logo Area-->
-		<?php $level=0; include('logo.php'); ?>
+		<?php $level=0; include 'common/logo.php'; ?>
 
 		
 	<div class="board">
 
 		<!--Nav Bar-->
 		<div class="top">
-			<?php $level=0; include('nav.php'); ?>
+			<?php $level=0; include 'common/nav.php'; ?>
 		</div>
 		
 		
@@ -114,24 +114,15 @@
 				</form>
 			</div>
 
-					<!--
-					<div style="position: absolute; bottom: 0px; margin: auto; width: 100%; height: 10px;">
-						<?php // include('footer.php'); ?>
-					</div>
-					-->
 		</div>
 
-		<div class="bottom">
-			<div style="padding: 20px 0 0 0; font-size: 16pt;">
-				<?php $level=0; include('footer.php'); ?>
-			</div>
-		</div>
+		<div class="bottom"></div>
 		
 	</div>
 	
-		
-		<div class="post"></div>
-		<div class="grass"></div>
+	<div style="padding: 20px 0 0 0; font-size: 16pt;">
+		<?php $level=0; include 'common/footer.php'; ?>
+	</div>
 		
 		
 		<!--            VERSION GOODIE        -->
