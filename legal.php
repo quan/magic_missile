@@ -28,11 +28,11 @@
 </head>
 
 <body class="noselect">
-	<?php $level=0; include('logo.php');?>
+	<?php $level=0; include 'common/logo.php';?>
 	
 <div class="board">
 	<div class="top">
-		<?php $level=0; include('nav.php'); ?>
+		<?php $level=0; include 'common/nav.php'; ?>
 	</div>
 
 	<div class="middle">
@@ -51,7 +51,7 @@
 
 	<div class="bottom">
 		<div style="padding: 20px 0 0 0; font-size: 16pt;">
-			<?php $level=0; include('footer.php'); ?>
+			<?php $level=0; include 'footer.php'; ?>
 		</div>
 	</div>
 </div>
