@@ -41,6 +41,12 @@
 		 width: 100%;
 		 margin: 20px 0 0 0;
 	}
+	#commit_manual{
+		 justify-content: center;
+		 align-items: center;
+		 text-align:center;
+		 padding:0px;
+	}
 </style>
 
 <?php $options = array("strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"); ?>

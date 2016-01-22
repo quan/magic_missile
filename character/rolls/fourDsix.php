@@ -61,6 +61,14 @@
 		tr{
 			height: 40px;
 		}
+		#allocate{		 
+		 justify-content: center;
+		 align-items: center;
+		 text-align:center;
+		 padding:0px;
+
+	}
+}
 	</style>
 
 		<div id="explain">

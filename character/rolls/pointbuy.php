@@ -52,6 +52,10 @@
 		 height: 50px; 
 		 width: 100%;
 		 margin: 20px 0 0 0;
+		 justify-content: center;
+		 align-items: center;
+		 text-align:center;
+		 padding:0px;
 	}
 	.description{
 		font-size: 2em;
@@ -61,6 +65,13 @@
 	.easy, .hard{
 		width: 200px;
 		height: 100px;
+	}
+
+	#commit_pointbuy{
+		 justify-content: center;
+		 align-items: center;
+		 text-align:center;
+		 padding:0px;
 	}
 </style>
 
