@@ -92,7 +92,6 @@
 		<?php $level=0; include 'common/footer.php'; ?>
 	</div>
 		
-		
 	<script>
 
 		//Div Carousel
