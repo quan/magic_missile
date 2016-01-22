@@ -19,11 +19,17 @@
 	font-size: 22pt;
 	color: #fff;
 	margin: auto;
-	display: flex;
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 	flex-direction: row;
-	flex-wrap: wrap;
+	-webkit-flex-direction: row;
 	justify-content: space-around;
+	-webkit-justify-content: space-around;
 	align-items: center;
+	-webkit-align-items: center;
 }
 
 .navbutton{

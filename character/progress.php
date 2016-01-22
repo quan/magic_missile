@@ -11,10 +11,13 @@
 .progressbar{
 	color: #000;
 	display: flex;
+	display: -webkit-flex;
 	flex-direction: row;
-	flex-wrap: no-wrap;
+	-webkit-flex-direction: row;
 	justify-content: center;
+	-webkit-justify-content: center;
 	align-items: center;
+	-webkit-align-items: center;
 	position: absolute;
 	left: 40px;
 	top: 8px;

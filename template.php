@@ -26,13 +26,21 @@
 			position: relative;
 			margin: auto;
 			overflow: hidden;
-			display: flex;
+			display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+			display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+			display: -ms-flexbox;      /* TWEENER - IE 10 */
+			display: -webkit-flex;     /* NEW - Chrome */
+			display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
 			flex-direction: row;
 		}
 		.prev_arrow, .next_arrow{
 			display: flex;
+			display: -webkit-flex;
 			justify-content: center;
+			-webkit-justify-content: center;
 			align-items: center;
+			-webkit-align-items: center;
 		}
 	</style>
 </head>

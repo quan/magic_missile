@@ -28,6 +28,7 @@
 	<style>
 		.content{
 			flex-direction: column;
+			-webkit-flex-direction: column;
 		}
 		.above{
 			height: 175px;
@@ -83,9 +84,13 @@
 			margin: -65px auto 0 auto;
 			position: relative;
 			display: flex;
+			display: -webkit-flex;
 			flex-direction: row;
+			-webkit-flex-direction: row;
 			justify-content: center;	
+			-webkit-justify-content: center;	
 			align-items: center;
+			-webkit-align-items: center;
 		}
 
 		.rollnav{
